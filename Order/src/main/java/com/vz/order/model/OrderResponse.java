@@ -9,8 +9,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class OrderResponse {
 	private String orderId = null ;
 	private ResponseStatus status = null;
-	private Order order= null;
-	private List<Order> orderList= null;
+	private Orders order= null;
+	private List<Orders> orderList= null;
 	
 	public String getOrderId() {
 		return orderId;
@@ -24,16 +24,16 @@ public class OrderResponse {
 	public void setStatus(ResponseStatus status) {
 		this.status = status;
 	}
-	public Order getOrder() {
+	public Orders getOrder() {
 		return order;
 	}
-	public void setOrder(Order order) {
+	public void setOrder(Orders order) {
 		this.order = order;
 	}
-	public List<Order> getOrderList() {
+	public List<Orders> getOrderList() {
 		return orderList;
 	}
-	public void setOrderList(List<Order> orderList) {
+	public void setOrderList(List<Orders> orderList) {
 		this.orderList = orderList;
 	}
 }

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository
-public interface OrderRepository extends JpaRepository<Order, Integer> {
+public interface OrderRepository extends JpaRepository<Orders, Integer> {
 	
-	List<Order> findAll(Specification<Order> order);
+	List<Orders> findAll(Specification<Orders> order);
 }

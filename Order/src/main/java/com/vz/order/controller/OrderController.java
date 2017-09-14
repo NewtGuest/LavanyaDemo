@@ -17,7 +17,7 @@ import io.swagger.annotations.ApiResponses;
 
 import com.vz.order.constants.StatusCode;
 import com.vz.order.exception.ApplicationException;
-import com.vz.order.model.Order;
+import com.vz.order.model.Orders;
 import com.vz.order.model.OrderResponse;
 import com.vz.order.model.ResponseStatus;
 import com.vz.order.service.OrderService;
@@ -43,15 +43,15 @@ public class OrderController {
     @CrossOrigin(origins = { "*" })
 	@ApiOperation(value = "Get Order", notes = "Returns A Response Of Order Details. SLA:500", response = OrderResponse.class)
 	@ApiResponses(value = {
-			@ApiResponse(code = 200, message = "Successfully Retrieved OrderRequestFallout Details", response = Order.class),
+			@ApiResponse(code = 200, message = "Successfully Retrieved OrderRequestFallout Details", response = Orders.class),
 			@ApiResponse(code = 400, message = "Invalid Input Provided"),
 			@ApiResponse(code = 404, message = "Note Does Not Exist") })
-	public ResponseEntity<OrderResponse> getOrderRequestFallout(@RequestBody Order order) {
+	public ResponseEntity<OrderResponse> getOrderRequestFallout(@RequestBody Orders order) {
     	OrderResponse response = new OrderResponse();
     	Boolean returnStatus = false;
 		String statusCode = null;
 		String statusMsg = null;
-		List<Order> orderList = null;
+		List<Orders> orderList = null;
 		
     	try {
 			orderList = orderService.getOrders(order);
@@ -98,10 +98,10 @@ public class OrderController {
 	    @ApiResponse(code = 200, message = "Successful Creation Of Order", response = OrderResponse.class),
 	    @ApiResponse(code = 404, message = "Creation Of Order Failed"),
 	    @ApiResponse(code = 400, message = "Invalid Input Provided") })
-    public ResponseEntity<OrderResponse> createOrderRequestFallout(@RequestBody Order orderRequest) {
+    public ResponseEntity<OrderResponse> createOrderRequestFallout(@RequestBody Orders orderRequest) {
     	
     	OrderResponse response = new OrderResponse();
-    	Order order = new Order();
+    	Orders order = new Orders();
     	Boolean returnCreateStatus = false;
 		String createStatusCode = null;
 		String createstatusMsg = null;

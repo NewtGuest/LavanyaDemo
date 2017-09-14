@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.vz.order.constants.StatusCode;
 import com.vz.order.exception.ApplicationException;
-import com.vz.order.model.Order;
+import com.vz.order.model.Orders;
 import com.vz.order.model.OrderRepository;
 
 @Service
@@ -20,9 +20,9 @@ public class OrderService {
 	@Autowired
 	OrderRepository orderRepository;
 	
-	public List<Order> getOrders(Order order)
+	public List<Orders> getOrders(Orders order)
 			throws ApplicationException {
-		List<Order> orderList = null;
+		List<Orders> orderList = null;
 		try {
 			orderList = orderRepository.findAll(new OrderSpec(order));
 		} catch (Exception e) {
@@ -33,8 +33,8 @@ public class OrderService {
 		return orderList;
 	}
 	
-	public Order createOrder(Order order) {
-		Order createdOrder = new Order();
+	public Orders createOrder(Orders order) {
+		Orders createdOrder = new Orders();
 		order.setCreatedDate(new Date());
 		order.setModifiedDate(new Date());
 		createdOrder = orderRepository.save(order);

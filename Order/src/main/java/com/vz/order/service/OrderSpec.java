@@ -9,19 +9,19 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import org.springframework.data.jpa.domain.Specification;
 
-import com.vz.order.model.Order;
+import com.vz.order.model.Orders;
 
 
-public class OrderSpec implements Specification<Order> {
+public class OrderSpec implements Specification<Orders> {
 	
-	final Order order;
+	final Orders order;
 	
-	public OrderSpec(Order order) {
+	public OrderSpec(Orders order) {
 		this.order = order;
 	}
 
 	@Override
-	public Predicate toPredicate(Root<Order> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+	public Predicate toPredicate(Root<Orders> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 		List<Predicate> criteria = new ArrayList<Predicate>();
 		if (order != null) {
 
